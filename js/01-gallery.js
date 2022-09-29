@@ -26,12 +26,14 @@ function onImgClick(e) {
   const instance = basicLightbox.create(`
     <img src="${source}" width="800" height="600">
   `)
-   instance.show();
+  instance.show();
+  console.log(gallery);
+  gallery.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    instance.close();
+  }
+  console.log(e.key);
+});
 }
 
-gallery.addEventListener('keyDown', e => {
-    if (e.key === 'Escape') {
-      instance.close();
-    }
-  })
 console.log(galleryItems);
