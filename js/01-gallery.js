@@ -28,12 +28,13 @@ function onImgClick(e) {
   `)
   instance.show();
   console.log(gallery);
-  gallery.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    instance.close();
-  }
-  console.log(e.key);
-});
+
+  gallery.addEventListener('keydown',onClose);
+  function onClose (e) {
+    if (e.key === 'Escape')
+    {instance.close();
+    gallery.removeEventListener('keydown', onClose);  }
+  };
 }
 
 console.log(galleryItems);
